@@ -32,7 +32,7 @@ func formBody(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Content-Type", "text/html")
 	w.WriteHeader(http.StatusCreated)
-	
+
 	//Populate template
 	var body bytes.Buffer
 	t, _ := template.ParseFiles("add.html")
@@ -40,7 +40,10 @@ func formBody(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err)
 	}
-	w.Write(body.Bytes())
+	_, err = w.Write(body.Bytes())
+	if err != nil {
+		log.Fatal(err)
+	}
 
 }
 
@@ -82,7 +85,10 @@ func movieBody(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	w.Write(jsonMovies)
+	_, err = w.Write(jsonMovies)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func showBody(w http.ResponseWriter, r *http.Request) {
@@ -123,7 +129,10 @@ func showBody(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	w.Write(jsonShows)
+	_, err = w.Write(jsonShows)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func get(w http.ResponseWriter, r *http.Request) {
@@ -140,7 +149,10 @@ func get(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err)
 	}
-	w.Write(body.Bytes())
+	_, err = w.Write(body.Bytes())
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 // Handle REST post
