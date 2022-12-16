@@ -49,20 +49,39 @@
 
   </head>
 <header>
-    <div class="navbar navbar-dark bg-dark shadow-sm" style="justify-content: flex-start">
-      <a href="#" class="navbar-brand d-flex align-items-center" style="margin-left: 10px">
-        <strong>Tyler's Movie Database</strong>
-      </a>
-
-            <button class="btn btn-primary" style="margin:10px" onclick="formBody()">Add</button>
-
-
-            <button class="btn btn-primary" style="margin:10px" onclick="movieBody()">Movies</button>
-
-
-            <button class="btn btn-primary" style="margin:10px" onclick="showBody()">Shows</button>
-
-  </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Tyler's Reviews</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:formBody();">
+                            <span data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                            Add
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:movieBody();">
+                            <span data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                            Movies
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:showBody();">
+                            <span data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                            Shows
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
 <html>
 <body>
