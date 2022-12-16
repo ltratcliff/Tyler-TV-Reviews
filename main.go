@@ -217,13 +217,13 @@ func post(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := mux.NewRouter()
-	// api := r.PathPrefix("/").Subrouter()
 	r.HandleFunc("/favicon.ico", faviconHandler).Methods(http.MethodGet, http.MethodOptions)
-	r.HandleFunc("/", get).Methods(http.MethodGet, http.MethodOptions)
-	r.HandleFunc("/formBody", formBody).Methods(http.MethodGet, http.MethodOptions)
-	r.HandleFunc("/movieBody", movieBody).Methods(http.MethodGet, http.MethodOptions)
-	r.HandleFunc("/showBody", showBody).Methods(http.MethodGet, http.MethodOptions)
-	r.HandleFunc("/post", post).Methods(http.MethodPost, http.MethodOptions)
+	api := r.PathPrefix("/tyreviews").Subrouter()
+	api.HandleFunc("/", get).Methods(http.MethodGet, http.MethodOptions)
+	api.HandleFunc("/formBody", formBody).Methods(http.MethodGet, http.MethodOptions)
+	api.HandleFunc("/movieBody", movieBody).Methods(http.MethodGet, http.MethodOptions)
+	api.HandleFunc("/showBody", showBody).Methods(http.MethodGet, http.MethodOptions)
+	api.HandleFunc("/post", post).Methods(http.MethodPost, http.MethodOptions)
 
 	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Origin", "Accept", "token"})
 	originsOk := handlers.AllowedOrigins([]string{"*"})

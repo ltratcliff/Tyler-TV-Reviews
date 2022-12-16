@@ -74,7 +74,7 @@
     function formBody(){
         let body = document.getElementById('body');
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', '/formBody');
+        xhr.open('GET', '/tyreviews/formBody');
         // xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload= function (){
             let response = xhr.responseText;
@@ -101,7 +101,7 @@
                     </table>`;
         let body = document.getElementById('body');
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', '/movieBody');
+        xhr.open('GET', '/tyreviews/movieBody');
         // xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload= function (){
             let response = JSON.parse(xhr.responseText);
@@ -136,7 +136,7 @@
                     </table>`;
         let body = document.getElementById('body');
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', '/showBody');
+        xhr.open('GET', '/tyreviews/showBody');
         // xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload= function (){
             let response = JSON.parse(xhr.responseText);
@@ -167,7 +167,7 @@
             score: formData.get('score'),
             date: formData.get('date')
         });
-        xhr.open('POST', '/post');
+        xhr.open('POST', '/tyreviews/post');
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload= function (){
             let responseJson = JSON.parse(xhr.responseText);
