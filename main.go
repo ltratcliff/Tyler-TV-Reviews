@@ -26,6 +26,10 @@ func faviconHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "favicon.ico")
 }
 
+func appleFaviconHandler(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "apple-touch-icon.png")
+}
+
 func formBody(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "OPTIONS" {
 		return
@@ -217,8 +221,9 @@ func post(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := mux.NewRouter()
-	r.HandleFunc("/favicon.ico", faviconHandler).Methods(http.MethodGet, http.MethodOptions)
 	api := r.PathPrefix("/tyreviews").Subrouter()
+	api.HandleFunc("/favicon.ico", faviconHandler).Methods(http.MethodGet, http.MethodOptions)
+	api.HandleFunc("/apple-touch-icon.png", appleFaviconHandler).Methods(http.MethodGet, http.MethodOptions)
 	api.HandleFunc("/", get).Methods(http.MethodGet, http.MethodOptions)
 	api.HandleFunc("/formBody", formBody).Methods(http.MethodGet, http.MethodOptions)
 	api.HandleFunc("/movieBody", movieBody).Methods(http.MethodGet, http.MethodOptions)
